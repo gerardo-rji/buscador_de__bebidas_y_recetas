@@ -15,7 +15,7 @@ export default function Header() {
   const fetchCategories = useAppStore(state => state.fetchCategories)
   const categories = useAppStore(state => state.categories)
   const searchRecipes = useAppStore(state => state.searchRecipes)
-  const showNotificacion = useAppStore(state => state.showNotificacion)
+  const showNotificacion = useAppStore(state => state.showNotification)
 
   useEffect(() => {
     fetchCategories()
