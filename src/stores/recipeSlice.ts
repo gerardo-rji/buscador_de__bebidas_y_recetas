@@ -1,5 +1,5 @@
 import type { StateCreator } from "zustand";
-import {getCategories, getRecipeById, getRecipes} from "../services/RecipeService.ts";
+import RecipeService from "../services/RecipeService.ts";
 import type {Categories, Drink, Drinks, Recipe, SearchFilter} from "../types";
 import type {FavoritesSliceType} from "./favoritesSlice.ts";
 
@@ -24,19 +24,19 @@ export const createRecipesSlice : StateCreator<RecipesSliceType & FavoritesSlice
   selectedRecipe: {} as Recipe,
   modal: false,
   fetchCategories: async () => {
-    const categories = await getCategories()
+    const categories = await RecipeService.getCategories()
     set({
       categories
     })
   },
   searchRecipes: async (filters) => {
-    const drinks = await getRecipes(filters)
+    const drinks = await RecipeService.getRecipes(filters)
     set({
       drinks
     })
   },
   selectRecipe: async (id) => {
-    const selectedRecipe = await getRecipeById(id)
+    const selectedRecipe = await RecipeService.getRecipeById(id)
     set({
       selectedRecipe,
       modal: true
