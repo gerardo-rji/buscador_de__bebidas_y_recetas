@@ -5,6 +5,7 @@ export default function GenerateAI() {
 
   const showNotification = useAppStore(state => state.showNotification)
    const generateRecipe = useAppStore(state => state.generateRecipe)
+  const recipe = useAppStore(state => state.recipe)
 
   const handleSubmit = async (e : SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -54,7 +55,7 @@ export default function GenerateAI() {
         </form>
 
         <div className="py-10 whitespace-pre-wrap">
-
+          {recipe}
         </div>
       </div>
 
