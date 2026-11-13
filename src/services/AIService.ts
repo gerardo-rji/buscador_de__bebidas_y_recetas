@@ -1,5 +1,5 @@
 import { streamText } from 'ai';
-import {openrouter} from "../lib/ai.ts";
+import { openrouter } from "../lib/ai.ts";
 
 export default {
   async generateRecipe(prompt: string) {
